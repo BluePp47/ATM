@@ -26,12 +26,17 @@ public class LoginChecker : MonoBehaviour
     public void ChecKLog()//로그인 체크
     {
         bool IsUser = GameManager.Instance.userDatas.list.Exists((user) => ID.text == user.iD);
-        bool IsUserPW = GameManager.Instance.userDatas.list.Exists((userPw) => PassWord.text == userPw.Password);
+        //bool IsUserPW = GameManager.Instance.userDatas.list.Exists((userPw) => PassWord.text == userPw.Password);
 
-        if (GameManager.Instance.userDatas.list.Exists((user) => ID.text == user.iD)
-            && (GameManager.Instance.userDatas.list.Exists((userPw) => PassWord.text == userPw.Password)))
+        if (IsUser)
         {
+            UserInfoData userInfoData = GameManager.Instance.userDatas.list.Find((user) => ID.text == user.iD);
+            Debug.Log(userInfoData.iD);
+            Debug.Log(userInfoData.Password);
             PopUpLogin.SetActive(false);
+
+            GameManager.Instance.LoginAcc(userInfoData);
+
 
         }
         else

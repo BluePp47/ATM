@@ -5075,11 +5075,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UserInfoData:
-    userName: 
+    userName: o
     Cash: 0
     Balance: 0
-    iD: 
-    Password: 
+    iD: o
+    Password: o
   userData:
     userName: "\uAE40\uAC10\uC790"
     Cash: 100000
@@ -6096,8 +6096,9 @@ MonoBehaviour:
     Balance: 0
     iD: 
     Password: 
+  UIManager: {fileID: 622164152}
   Name: {fileID: 217954386}
-  Balance: {fileID: 1526646260}
+  Balance: {fileID: 1133916338}
   SignInNoticeUI: {fileID: 1532522614}
   SignInNoticeText: {fileID: 916971580}
 --- !u!1 &834679534

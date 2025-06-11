@@ -2,15 +2,15 @@
     "list": [
         {
             "userName": "s",
-            "Cash": 50000,
-            "Balance": 50000,
+            "Cash": 10000,
+            "Balance": 100000,
             "iD": "s",
             "Password": "s"
         },
         {
             "userName": "d",
-            "Cash": 50000,
-            "Balance": 50000,
+            "Cash": 10000,
+            "Balance": 80700,
             "iD": "d",
             "Password": "d"
         },
@@ -20,6 +20,13 @@
             "Balance": 50000,
             "iD": "o",
             "Password": "o"
+        },
+        {
+            "userName": "김감자",
+            "Cash": 0,
+            "Balance": 50000,
+            "iD": "p",
+            "Password": "p"
         }
     ]
 }

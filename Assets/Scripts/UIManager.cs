@@ -22,7 +22,7 @@ public class UIManager : MonoBehaviour
 
         ID.text = GameManager.Instance.userData.iD;
         PassWord.text = GameManager.Instance.userData.Password;
-        
-        GameManager.Instance.SaveUserData();
+
+        //userdata 넣어주기
     }
 }

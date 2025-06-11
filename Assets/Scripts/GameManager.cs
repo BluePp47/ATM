@@ -34,7 +34,11 @@ public class GameManager : MonoBehaviour
         File.WriteAllText(path, json);
 
     }
-
+    public void LoginAcc(UserInfoData uData)
+    {
+        userData = uData;
+        uiManager.Refresh();
+    }
 
     public void Awake()
     {
@@ -53,11 +57,13 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
-        path = Path.Combine(Application.dataPath + "/UserData/", "UserAccount.json");       //파일을 하나 만들어서 그이름 대로 적으면 그 파일에 데이터 저장
-        LoadUserData();
+        
+        //path = Path.Combine(Application.dataPath + "/UserData/", "Userdatas.json");       //파일을 하나 만들어서 그이름 대로 적으면 그 파일에 데이터 저장
+        //Debug.Log(path);
+        //LoadUserData();
 
         LoadAllUserDatas();
-        uiManager.Refresh();
+        //uiManager.Refresh();
     }
 
     public void LoadAllUserDatas()
@@ -66,12 +72,6 @@ public class GameManager : MonoBehaviour
 
         string loadJson = File.ReadAllText(userdatasPath);
         userDatas = JsonUtility.FromJson<UserDatas>(loadJson);
-        
-
-        foreach (var item in userDatas.list)
-        {
-            Debug.Log(item.iD);
-        }
     }
 
 
@@ -116,6 +116,7 @@ public class GameManager : MonoBehaviour
             userData.Balance += Amount;
             userData.Cash -= Amount;
             uiManager.Refresh();
+            SaveUserData();
         }
     }
 
@@ -131,40 +132,48 @@ public class GameManager : MonoBehaviour
             userData.Cash += Amount;
             userData.Balance -= Amount;
             uiManager.Refresh();
-
+            SaveUserData();
         }
     }
 
     public void SaveUserData()//데이터 저장
     {
-        UserInfoData.userName = userData.userName.ToString();
-        UserInfoData.Balance = userData.Balance;
-        UserInfoData.Cash = userData.Cash;
-        UserInfoData.iD = userData.iD;
-        UserInfoData.Password = userData.Password;
 
 
-        string json = JsonUtility.ToJson(UserInfoData, true);
+        //UserInfoData.userName = userData.userName.ToString();
+        //UserInfoData.Balance = userData.Balance;
+        //UserInfoData.Cash = userData.Cash;
+        //UserInfoData.iD = userData.iD;
+        //UserInfoData.Password = userData.Password;
+
+
+        //string json = JsonUtility.ToJson(UserInfoData, true);
+
+        //File.WriteAllText(path, json);
+        //UserInfoData userInfoData = userDatas.list.Find((user) => "s" == user.iD);
+        //Debug.Log(userInfoData.Cash);
+        path = Path.Combine(Application.dataPath + "/UserData/", "Userdatas.json");
+        string json = JsonUtility.ToJson(userDatas, true);
 
         File.WriteAllText(path, json);
 
     }
 
 
-    public void LoadUserData()//데이터 불러오기
-    {
-        string loadJson = File.ReadAllText(path);
-        UserInfoData = JsonUtility.FromJson<UserInfoData>(loadJson);
+    //public void LoadUserData()//데이터 불러오기
+    //{
+    //    string loadJson = File.ReadAllText(path);
+    //    UserInfoData = JsonUtility.FromJson<UserInfoData>(loadJson);
 
-        GameManager.Instance.userData.userName = UserInfoData.userName;
-        GameManager.Instance.userData.Cash = UserInfoData.Cash;
-        GameManager.Instance.userData.Balance = UserInfoData.Balance;
+    //    GameManager.Instance.userData.userName = UserInfoData.userName;
+    //    GameManager.Instance.userData.Cash = UserInfoData.Cash;
+    //    GameManager.Instance.userData.Balance = UserInfoData.Balance;
 
-        GameManager.Instance.userData.iD = UserInfoData.iD;
-        GameManager.Instance.userData.Password = UserInfoData.Password;
+    //    GameManager.Instance.userData.iD = UserInfoData.iD;
+    //    GameManager.Instance.userData.Password = UserInfoData.Password;
 
-        Debug.Log($"저장{UserInfoData.userName},{UserInfoData.Cash}, {UserInfoData.Balance}");
-    }
+    //    Debug.Log($"저장{UserInfoData.userName},{UserInfoData.Cash}, {UserInfoData.Balance}");
+    //}
 
 }
 

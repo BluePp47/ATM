@@ -12,10 +12,10 @@ public class SendMoney : MonoBehaviour
 {
     public GameManager GameManager;
     public UserInfoData UserInfo;
-    private UIManager UIManager;
+    public UIManager UIManager;
 
     public TMP_InputField Name;
-    public TMP_Text Balance;
+    public TMP_InputField Balance;
 
     public GameObject SignInNoticeUI;
 
@@ -34,6 +34,7 @@ public class SendMoney : MonoBehaviour
                     break;
                 }
             }
+
             Debug.Log(Balance.text);
 
             if (GameManager.Instance.userData.Balance >= int.Parse(Balance.text))
@@ -73,14 +74,17 @@ public class SendMoney : MonoBehaviour
     }
     public void AllEmpty()
     {
+        SignInNoticeUI.SetActive(true);
         SignInNoticeText.text = $"{"입력정보를 확인해주세요"}";
     }
     public void NotEnoughBalance()
     {
+        SignInNoticeUI.SetActive(true);
         SignInNoticeText.text = $"{"잔액이 부족합니다"}";
     }
     public void NotTargetExsist()
     {
+        SignInNoticeUI.SetActive(true);
         SignInNoticeText.text = $"{" 존재하지 않는 대상입니다"}";
     }
   
