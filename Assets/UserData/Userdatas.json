@@ -1,0 +1,25 @@
+{
+    "list": [
+        {
+            "userName": "s",
+            "Cash": 50000,
+            "Balance": 50000,
+            "iD": "s",
+            "Password": "s"
+        },
+        {
+            "userName": "d",
+            "Cash": 50000,
+            "Balance": 50000,
+            "iD": "d",
+            "Password": "d"
+        },
+        {
+            "userName": "o",
+            "Cash": 50000,
+            "Balance": 50000,
+            "iD": "o",
+            "Password": "o"
+        }
+    ]
+}
